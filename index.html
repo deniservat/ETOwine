@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light">
+<title>The Good Nose — Notes for Slower Evenings</title>
+<style>
+  /* ---------- ETO design tokens ---------- */
+  :root{
+    --primary:#28292C;
+    --secondary:#E6E0D5;
+    --tertiary:#CDBDB2;
+    --warm:#D9CABF;
+    --paper:#EFEAE1;
+    --paper-2:#F5F1EA;
+    --muted:#66656C;
+    --hairline:#D9D0C2;
+  }
+
+  /* Resets for email */
+  body,table,td,a{ -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }
+  table,td{ mso-table-lspace:0pt; mso-table-rspace:0pt; }
+  img{ -ms-interpolation-mode:bicubic; border:0; outline:none; text-decoration:none; display:block; }
+  body{ margin:0 !important; padding:0 !important; width:100% !important; background:#1a1a1c; }
+
+  /* Type — Proxima Nova stack, all sans */
+  .ff{ font-family:"proxima-nova","Proxima Nova","Helvetica Neue",Helvetica,Arial,sans-serif; }
+
+  .eyebrow{
+    font-size:11px; line-height:1.25; letter-spacing:0.18em;
+    text-transform:uppercase; font-weight:500; color:var(--muted);
+  }
+  .eyebrow-light{ color:rgba(230,224,213,.7); }
+
+  .h-hero{
+    font-size:34px; line-height:1.15; letter-spacing:0.005em;
+    font-weight:400; color:var(--secondary); margin:0;
+  }
+  .h-section{
+    font-size:24px; line-height:1.2; letter-spacing:0.005em;
+    font-weight:400; color:var(--primary); margin:0;
+  }
+  .h-card{
+    font-size:16px; line-height:1.3; letter-spacing:0.01em;
+    font-weight:500; color:var(--primary); margin:0;
+    text-transform:none;
+  }
+  .body{
+    font-size:14px; line-height:1.7; letter-spacing:0.005em;
+    font-weight:400; color:var(--primary); margin:0;
+  }
+  .body-light{ color:rgba(230,224,213,.78); }
+  .small{
+    font-size:11px; line-height:1.5; letter-spacing:0.05em;
+    text-transform:uppercase; color:var(--muted);
+  }
+  .meta{
+    font-size:12px; line-height:1.4; letter-spacing:0.04em;
+    color:var(--muted); text-transform:uppercase; font-weight:500;
+  }
+
+  /* Pill button — hairline, 30px radius */
+  .btn{
+    display:inline-block;
+    padding:14px 28px;
+    font-family:"proxima-nova","Proxima Nova","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:11px; letter-spacing:0.14em; text-transform:uppercase; font-weight:500;
+    color:var(--primary); text-decoration:none;
+    border:1px solid var(--primary); border-radius:30px;
+    background:transparent;
+  }
+  .btn-light{ color:var(--secondary); border-color:rgba(230,224,213,.85); }
+
+  /* Hairline rule */
+  .rule{ height:1px; line-height:1px; font-size:1px; background:var(--hairline); }
+  .rule-light{ background:rgba(230,224,213,.18); }
+
+  /* Layout */
+  .wrap{ width:100%; }
+  .container{ width:100%; max-width:680px; margin:0 auto; }
+  .px{ padding-left:56px; padding-right:56px; }
+  .py-xl{ padding-top:72px; padding-bottom:72px; }
+  .py-lg{ padding-top:56px; padding-bottom:56px; }
+  .py-md{ padding-top:40px; padding-bottom:40px; }
+
+  /* Editorial "photo" blocks (CSS-only, no external imagery) */
+  .photo{
+    display:block; width:100%; height:0; padding-bottom:62%;
+    background:
+      radial-gradient(120% 80% at 70% 30%, rgba(217,202,191,.55) 0%, rgba(217,202,191,0) 60%),
+      linear-gradient(135deg,#3a3b3e 0%, #1f2022 100%);
+  }
+  .photo-warm{
+    background:
+      radial-gradient(110% 70% at 30% 30%, rgba(245,241,234,.6) 0%, rgba(245,241,234,0) 55%),
+      linear-gradient(140deg,#cdbdb2 0%, #b8a596 100%);
+  }
+  .photo-stone{
+    background:
+      radial-gradient(120% 80% at 60% 40%, rgba(245,241,234,.55) 0%, rgba(245,241,234,0) 60%),
+      linear-gradient(135deg,#d9d0c2 0%, #a89e8e 100%);
+  }
+  .photo-night{
+    background:
+      radial-gradient(110% 80% at 50% 60%, rgba(205,189,178,.35) 0%, rgba(205,189,178,0) 60%),
+      linear-gradient(160deg,#28292C 0%, #131316 100%);
+  }
+
+  /* Responsive */
+  @media only screen and (max-width:620px){
+    .px{ padding-left:24px !important; padding-right:24px !important; }
+    .py-xl{ padding-top:48px !important; padding-bottom:48px !important; }
+    .py-lg{ padding-top:40px !important; padding-bottom:40px !important; }
+    .py-md{ padding-top:28px !important; padding-bottom:28px !important; }
+    .h-hero{ font-size:28px !important; }
+    .h-section{ font-size:20px !important; }
+    .stack{ display:block !important; width:100% !important; }
+    .stack-pad{ padding:0 0 24px 0 !important; }
+  }
+</style>
+</head>
+<body class="ff" style="background:#1a1a1c;">
+
+<!-- Preview text -->
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#1a1a1c;opacity:0;">
+  Long light, longer tables — a Cornwall house, a Padstow kitchen, and a potter worth the drive.
+</div>
+
+<!-- ===================== TOP BAR ===================== -->
+<table role="presentation" class="wrap" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:var(--secondary);">
+  <tr><td align="center">
+    <table role="presentation" class="container" width="680" cellpadding="0" cellspacing="0" border="0">
+      <tr><td class="px" style="padding-top:18px;padding-bottom:18px;">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td class="small" align="left" style="color:var(--muted);">The Good Nose · June Edition</td>
+            <td class="small" align="right" style="color:var(--muted);">
+              <a href="#" style="color:var(--muted);text-decoration:none;">View in browser</a>
+            </td>
+          </tr>
+        </table>
+      </td></tr>
+    </table>
+  </td></tr>
+</table>
+
+<!-- ===================== HERO — dark, ETO web style ===================== -->
+<table role="presentation" class="wrap" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#1a1a1c;">
+  <tr><td align="center">
+    <table role="presentation" class="container" width="680" cellpadding="0" cellspacing="0" border="0">
+
+      <!-- Logotype -->
+      <tr><td align="center" style="padding:36px 0 8px;">
+        <span class="ff" style="font-size:22px;letter-spacing:0.42em;font-weight:500;color:var(--secondary);">ETO</span>
+      </td></tr>
+
+      <!-- Hero photo block -->
+      <tr><td class="px" style="padding-top:24px;padding-bottom:0;">
+        <div class="photo photo-night"></div>
+      </td></tr>
+
+      <!-- Hero copy overlaid below image (email-safe — no absolute positioning) -->
+      <tr><td class="px" style="padding-top:36px;padding-bottom:8px;">
+        <p class="eyebrow eyebrow-light" style="margin:0 0 18px;">Notes for Slower Evenings · June Issue</p>
+        <h1 class="h-hero">Long light,<br>longer tables.</h1>
+      </td></tr>
+
+      <tr><td class="px" style="padding-top:20px;padding-bottom:56px;">
+        <p class="body body-light" style="max-width:520px;">
+          A short letter on June in the southwest — and a few things that feel right for evenings where the sun doesn't set until nine: a house that teaches restraint, a kitchen built around the morning's market, and a pottery worth a coastal drive.
+        </p>
+      </td></tr>
+
+    </table>
+  </td></tr>
+</table>
+
+<!-- ===================== EDITOR'S NOTE — warm paper field ===================== -->
+<table role="presentation" class="wrap" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:var(--secondary);">
+  <tr><td align="center">
+    <table role="presentation" class="container" width="680" cellpadding="0" cellspacing="0" border="0">
+      <tr><td class="px py-xl">
+
+        <p class="eyebrow" style="margin:0 0 18px;">01 · Editor's note</p>
+        <h2 class="h-section" style="margin-bottom:24px;">When the light stays late.</h2>
+
+        <p class="body" style="margin-bottom:18px;">
+          There's something about June light in the southwest that makes you want to slow down. It stays late, moves across stone differently. The restaurants open their doors wider. Tables shift outside.
+        </p>
+        <p class="body" style="margin-bottom:18px;">
+          This issue is built around that shift. We've pulled together things that feel right for long light and longer tables — the kind of evening where the sun doesn't set until nine, and you're not thinking about wrapping up. Design and food and the kind of objects that make lingering feel intentional.
+        </p>
+        <p class="body">
+          A lot of this is Cornwall, but the principle is the season: places where the pace of the evening follows the light.
+        </p>
+
+      </td></tr>
+
+      <tr><td class="px"><div class="rule"></div></td></tr>
+    </table>
+  </td></tr>
+</table>
+
+<!-- ===================== SECTION A — PLACES ===================== -->
+<table role="presentation" class="wrap" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:var(--paper);">
+  <tr><td align="center">
+    <table role="presentation" class="container" width="680" cellpadding="0" cellspacing="0" border="0">
+      <tr><td class="px py-lg">
+
+        <p class="eyebrow" style="margin:0 0 12px;">02 · Places</p>
+        <h2 class="h-section">Worth the long afternoon.</h2>
+
+      </td></tr>
+
+      <!-- Card 1 -->
+      <tr><td class="px" style="padding-bottom:48px;">
+        <div class="photo photo-stone"></div>
+      </td></tr>
+      <tr><td class="px" style="padding-bottom:48px;">
+        <p class="meta" style="margin:0 0 10px;">Exhibitions &amp; Spaces · Cambridge</p>
+        <h3 class="h-card" style="margin-bottom:14px;">Kettle's Yard — a house that teaches restraint.</h3>
+        <p class="body" style="margin-bottom:20px;">
+          Jim Ede collected with the idea that each object needs air around it, that a room can hold meaning without being full. The courtyard is open to the street — there's no barrier between the museum and the walk outside. That's the whole idea. Visiting in June means the light fills the upper rooms differently; you'll understand why he arranged things the way he did.
+        </p>
+        <p class="small" style="margin-bottom:22px;">Open Tue–Sun · Free entry · Go in the afternoon</p>
+        <a href="#" class="btn">Plan the visit</a>
+      </td></tr>
+
+      <tr><td class="px"><div class="rule"></div></td></tr>
+
+      <!-- Card 2 -->
+      <tr><td class="px" style="padding-top:48px;padding-bottom:48px;">
+        <div class="photo photo-warm"></div>
+      </td></tr>
+      <tr><td class="px" style="padding-bottom:48px;">
+        <p class="meta" style="margin:0 0 10px;">Restaurants &amp; Wine · Padstow, Cornwall</p>
+        <h3 class="h-card" style="margin-bottom:14px;">Kota — what the morning's market gives you.</h3>
+        <p class="body" style="margin-bottom:20px;">
+          Jude Kereama trained under René Redzepi. Now he's in Cornwall, building a restaurant around what the market gives him that morning — it changes daily. The wine list is natural, unshowy, the kind of list built by someone who actually drinks wine rather than curates it. The room is small. You'll watch your food being finished in an open kitchen.
+        </p>
+        <p class="small" style="margin-bottom:22px;">Reservation required · Closed Sun–Mon · Book ahead</p>
+        <a href="#" class="btn">See the menu</a>
+      </td></tr>
+
+      <tr><td class="px"><div class="rule"></div></td></tr>
+
+      <!-- Card 3 -->
+      <tr><td class="px" style="padding-top:48px;padding-bottom:48px;">
+        <div class="photo photo-stone"></div>
+      </td></tr>
+      <tr><td class="px" style="padding-bottom:64px;">
+        <p class="meta" style="margin:0 0 10px;">Objects &amp; Discoveries · St Ives</p>
+        <h3 class="h-card" style="margin-bottom:14px;">Leach Pottery — hand-thrown, made to live on a table.</h3>
+        <p class="body" style="margin-bottom:20px;">
+          In June, the studios open their doors. You can watch people work. The plates are unglazed clay, slightly irregular — the kind of object that tells you a hand made it. They sit differently on a table than factory ceramics. St Ives is small, walkable, the kind of place where a morning wandering turns into an afternoon. Pick something that will live on your table for years.
+        </p>
+        <p class="small" style="margin-bottom:22px;">Coastal drive from Penzance · 45 minutes · Open daily except Sundays</p>
+        <a href="#" class="btn">Plan the drive</a>
+      </td></tr>
+
+    </table>
+  </td></tr>
+</table>
+
+<!-- ===================== SECTION B — RITUAL (paper-2 field) ===================== -->
+<table role="presentation" class="wrap" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:var(--paper-2);">
+  <tr><td align="center">
+    <table role="presentation" class="container" width="680" cellpadding="0" cellspacing="0" border="0">
+
+      <tr><td class="px py-lg">
+        <p class="eyebrow" style="margin:0 0 12px;">03 · The wine ritual</p>
+        <h2 class="h-section" style="margin-bottom:24px;">The long drink.</h2>
+
+        <p class="body" style="margin-bottom:18px;">
+          June evenings don't need to be finished by ten. The light is still there at nine. If you're opening wine now, open something you don't mind sipping slowly — a natural wine, something with lower alcohol, something that doesn't demand to be emptied.
+        </p>
+        <p class="body" style="margin-bottom:18px;">
+          Use a decanter. Watch how the light moves through the glass as the evening changes. This is what slower drinking actually looks like — not a performance, just an evening long enough to let the wine warm in your hand, let the conversation find its rhythm, let the room get quieter without anyone noticing.
+        </p>
+        <p class="body">
+          This is what decanters were actually designed for. Not display. Time.
+        </p>
+      </td></tr>
+
+      <tr><td class="px" style="padding-bottom:56px;">
+        <a href="https://www.etowine.com" class="btn">See the decanter</a>
+      </td></tr>
+
+      <tr><td class="px"><div class="rule"></div></td></tr>
+    </table>
+  </td></tr>
+</table>
+
+<!-- ===================== CLOSING ===================== -->
+<table role="presentation" class="wrap" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:var(--secondary);">
+  <tr><td align="center">
+    <table role="presentation" class="container" width="680" cellpadding="0" cellspacing="0" border="0">
+      <tr><td class="px py-lg" align="left">
+        <p class="eyebrow" style="margin:0 0 18px;">04 · Until next time</p>
+        <p class="body" style="margin-bottom:8px;">
+          Have a recommendation for The Good Nose? We'd like to hear it. Reply to this email.
+        </p>
+        <p class="body" style="color:var(--muted);">— ETO</p>
+      </td></tr>
+    </table>
+  </td></tr>
+</table>
+
+<!-- ===================== FOOTER ===================== -->
+<table role="presentation" class="wrap" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#1a1a1c;">
+  <tr><td align="center">
+    <table role="presentation" class="container" width="680" cellpadding="0" cellspacing="0" border="0">
+
+      <tr><td class="px" style="padding-top:48px;padding-bottom:16px;" align="center">
+        <span class="ff" style="font-size:16px;letter-spacing:0.42em;font-weight:500;color:var(--secondary);">ETO</span>
+      </td></tr>
+
+      <tr><td class="px" align="center" style="padding-bottom:24px;">
+        <p class="small" style="color:rgba(230,224,213,.55);letter-spacing:0.14em;">Wine, preserved beautifully.</p>
+      </td></tr>
+
+      <tr><td class="px"><div class="rule rule-light"></div></td></tr>
+
+      <tr><td class="px" style="padding-top:24px;padding-bottom:48px;" align="center">
+        <p class="small" style="color:rgba(230,224,213,.45);letter-spacing:0.12em;margin-bottom:12px;">
+          You're receiving this because you joined The Good Nose.
+        </p>
+        <p class="small" style="color:rgba(230,224,213,.45);letter-spacing:0.12em;">
+          <a href="#" style="color:rgba(230,224,213,.7);text-decoration:none;">Manage preferences</a>
+          &nbsp;·&nbsp;
+          <a href="{{ unsubscribe }}" style="color:rgba(230,224,213,.7);text-decoration:none;">Unsubscribe</a>
+        </p>
+        <p class="small" style="color:rgba(230,224,213,.3);letter-spacing:0.12em;margin-top:18px;">
+          ETO · London · etowine.com
+        </p>
+      </td></tr>
+
+    </table>
+  </td></tr>
+</table>
+
+</body>
+</html>
